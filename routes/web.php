@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::get('/parse', "ParseController@parse");
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
