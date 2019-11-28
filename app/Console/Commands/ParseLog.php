@@ -1,17 +1,45 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Console\Commands;
 
+use Illuminate\Console\Command;
 use App\Statistic;
 use phpseclib\Net\SFTP;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class ParseController extends Controller
+class ParseLog extends Command
 {
-    public function parse()
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'parse:log';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Parse log file from another server and insert data into database.';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $file =null;
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $file_name = null;
 
         $sftp = new SFTP('192.206.45.108:8822');
 
@@ -24,29 +52,16 @@ class ParseController extends Controller
 
             $files = array_diff($files, ['.', '..']);
 
-            // print_r($files);
-
             foreach($files as $file_name){
-                // DB::table('processes')->insertOrIgnore([
-                //          'file_name' => $file,
-                //          'status' => 0,
-                // ]);
-                // $file_name = DB::table('processes')->where('status', 0)->pluck('file_name')->first();
                 $sftp->get($file_name, 'test.log');
                 $sftp->delete($file_name, false);
-    
-                // DB::table('processes')->where('file_name', $file_name)->update([
-                //     'status' => 2
-                // ]);
-   
                 $this->insertIntoDB();
-             }
-
+            }
         }
-
     }
 
-    public function insertIntoDB(){
+    public function insertIntoDB()
+    {
 
         $file = fopen('test.log', "r");
 
@@ -72,10 +87,6 @@ class ParseController extends Controller
                     'timezone'      => $row[7],
                 ]);
             }
-
-            // DB::table('processes')->where('file_name', $file_name)->update([
-            //     'status' => 1,
-            // ]);
 
         }else{
             return response("0", 404);  
