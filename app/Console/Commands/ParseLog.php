@@ -72,7 +72,7 @@ class ParseLog extends Command
                 
                 $row = preg_replace($pattern, "", $row);
 
-                $row = explode(',', $row);
+                $row = explode(':', $row);
 
                 $statistic = new Statistic();
 
