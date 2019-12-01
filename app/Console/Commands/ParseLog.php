@@ -63,7 +63,7 @@ class ParseLog extends Command
     public function insertIntoDB()
     {
 
-        $file = fopen('E:\saidul\xampp\htdocs\location-api\storage\logs\api\laravel-2019-12-01.log', "r");
+        $file = fopen('test.log', "r");
 
         $pattern= '/\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\]\s\w*.INFO:/';
 
