@@ -18,9 +18,9 @@ Route::get('/', "HomeController@index");
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('/home', 'HomeController@index')->name('home');
 });
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
