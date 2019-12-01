@@ -65,7 +65,7 @@ class ParseLog extends Command
 
         $file = fopen('test.log', "r");
 
-        $pattern= '/\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\]\s\w*.*:/';
+        $pattern= '/\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\]\s\w*.INFO:/';
 
         if($file){  
             while(($row = fgets($file)) != false) {
