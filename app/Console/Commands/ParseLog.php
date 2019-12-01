@@ -63,16 +63,16 @@ class ParseLog extends Command
     public function insertIntoDB()
     {
 
-        $file = fopen('test.log', "r");
+        $file = fopen('E:\saidul\xampp\htdocs\location-api\storage\logs\api\laravel-2019-12-01.log', "r");
 
-        $pattern= '/\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\]\s\w*.INFO:/';
+        $pattern= '/\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\]\s\w*.*:/';
 
         if($file){  
             while(($row = fgets($file)) != false) {
                 
                 $row = preg_replace($pattern, "", $row);
 
-                $row = explode(':', $row);
+                $row = explode(';', $row);
 
                 $statistic = new Statistic();
 
