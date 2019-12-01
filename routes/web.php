@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "HomeController@index");
 
 
-Route::get('/parse', "ParseController@parse");
+// Route::get('/parse', "ParseController@parse");
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

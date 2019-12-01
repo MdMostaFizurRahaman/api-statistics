@@ -85,6 +85,8 @@ class ParseLog extends Command
                     'query'         => $row[5],
                     'region'        => $row[6],
                     'timezone'      => $row[7],
+                    'provider'      => $row[8],
+                    'log_time'      => $row[9],
                 ]);
             }
 
