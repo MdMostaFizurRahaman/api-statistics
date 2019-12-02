@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d889ea3e142e5c91ac36864c13154c7",
+    "content-hash": "718550314360f8cc67efe97a251761bc",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -381,6 +381,38 @@
             "time": "2019-09-03T16:45:42+00:00"
         },
         {
+            "name": "gimtonic/laravel-blade-readable-numbers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gimtonic/laravel-blade-readable-numbers.git",
+                "reference": "3d66734b9c82d24c6eeb47dfa36b9215c6f197d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gimtonic/laravel-blade-readable-numbers/zipball/3d66734b9c82d24c6eeb47dfa36b9215c6f197d7",
+                "reference": "3d66734b9c82d24c6eeb47dfa36b9215c6f197d7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gimtonic\\ReadableNumbers\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Антон Королев",
+                    "email": "gimtonic@rambler.ru"
+                }
+            ],
+            "time": "2019-03-28T16:14:25+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -467,6 +499,49 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "laravel-frontend-presets/material-dashboard",
+            "version": "v1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/material-dashboard.git",
+                "reference": "644d3095c87ff82e0a9e6af0df94ff00adaa9302"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/material-dashboard/zipball/644d3095c87ff82e0a9e6af0df94ff00adaa9302",
+                "reference": "644d3095c87ff82e0a9e6af0df94ff00adaa9302",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5 || ^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\MaterialPreset\\MaterialPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\MaterialPreset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel 5.x Front-end preset for material dashboard",
+            "homepage": "https://github.com/creativetimofficial/material-dashboard-laravel",
+            "keywords": [
+                "laravel",
+                "material",
+                "preset"
+            ],
+            "time": "2019-09-25T09:54:27+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5149,7 +5224,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "gimtonic/laravel-blade-readable-numbers": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

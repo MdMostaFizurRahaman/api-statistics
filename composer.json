@@ -10,6 +10,8 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "gimtonic/laravel-blade-readable-numbers": "dev-master",
+        "laravel-frontend-presets/material-dashboard": "^1.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
         "phpseclib/phpseclib": "~2.0",

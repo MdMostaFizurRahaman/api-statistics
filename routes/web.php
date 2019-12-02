@@ -24,3 +24,25 @@ Route::group(['middleware' => 'auth'], function(){
 
 Auth::routes(['register' => false]);
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('table-list', function () {
+		return view('pages.table_list');
+	})->name('table');
+
+	Route::get('notifications', function () {
+		return view('pages.notifications');
+	})->name('notifications');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+	Route::resource('user', 'UserController', ['except' => ['show']]);
+	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+});
+
