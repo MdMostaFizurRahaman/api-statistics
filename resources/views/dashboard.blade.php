@@ -170,7 +170,7 @@
       },
       created(){
         this.getDashboardData()
-        this.interval = setInterval(() => this.updatedDashboardData(),60000);
+        // this.interval = setInterval(() => this.updatedDashboardData(),60000*5);
       }
     })
   </script>
