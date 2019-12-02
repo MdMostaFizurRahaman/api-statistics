@@ -11,7 +11,7 @@
                 <i class="material-icons">mobile_screen_share</i>
               </div>
               <p class="card-category">Total Request</p>
-              <h3 class="card-title">@{{dashboard.total_request}}
+              <h3 class="card-title">@{{dashboard.total_request | numFormat('0.00a')}}
                 {{-- <small>GB</small> --}}
               </h3>
             </div>
@@ -30,7 +30,7 @@
                 <i class="material-icons">report_problem</i>
               </div>
               <p class="card-category">Total Failed</p>
-              <h3 class="card-title">@{{dashboard.total_failed}}</h3>
+              <h3 class="card-title">@{{dashboard.total_failed  | numFormat('0.00a')}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -64,7 +64,7 @@
                 <i class="material-icons">person_add</i>
               </div>
               <p class="card-category">Unique Requests</p>
-              <h3 class="card-title">@{{dashboard.unique_request}}</h3>
+              <h3 class="card-title">@{{dashboard.unique_request | numFormat('0.00a')}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
