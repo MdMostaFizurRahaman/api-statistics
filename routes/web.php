@@ -30,13 +30,15 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
-
+	
 	Route::get('notifications', function () {
 		return view('pages.notifications');
 	})->name('notifications');
+
+	Route::get('/test', function (){
+		$res =DB::table('statistics')->where('app_version', '3.0.0')->first();
+		return response()->json($res);
+	});
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -44,5 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::get('country_summary', 'CountrySummaryController@index')->name('country_summary');
+	Route::get('country_summary/get', 'CountrySummaryController@getSummary')->name('country_summary.get');
 });
 

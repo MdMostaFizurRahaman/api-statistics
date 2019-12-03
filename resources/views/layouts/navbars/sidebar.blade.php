@@ -41,10 +41,10 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('table') }}">
+      <li class="nav-item{{ $activePage == 'country_summary' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('country_summary') }}">
           <i class="material-icons">content_paste</i>
-            <p>{{ __('Table List') }}</p>
+            <p>Country Summary</p>
         </a>
     </li>
     </ul>

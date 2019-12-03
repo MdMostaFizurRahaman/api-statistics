@@ -44,7 +44,7 @@ class ParseLog extends Command
         $sftp = new SFTP('192.206.45.108:8822');
 
         if (!$sftp->login('root', 'APIforGeolocation@32123##')) {
-            throw new Exception('Login failed');
+            $this->info('Login failed');
         }else{
             $sftp->chdir('/var/www/html/location-api/storage/logs/api/');
 
@@ -77,19 +77,19 @@ class ParseLog extends Command
                 $statistic = new Statistic();
 
                 $statistic->insert([
-                    'city'          => isset($row[0]) ? $row[0] : null,
-                    'country'       => isset($row[1]) ? $row[1] : null,
-                    'countryCode'   => isset($row[2]) ? $row[2] : null,
-                    'isp'           => isset($row[3]) ? $row[3] : null,
-                    'org'           => isset($row[4]) ? $row[4] : null,
-                    'query'         => isset($row[5]) ? $row[5] : null,
-                    'region'        => isset($row[6]) ? $row[6] : null,
-                    'timezone'      => isset($row[7]) ? $row[7] : null,
-                    'provider'      => isset($row[8]) ? $row[8] : null,
-                    'log_time'      => isset($row[9]) ? $row[9] : null,
-                    'app_name'      => isset($row[10]) ? $row[10] : null,
-                    'device_id'     => isset($row[11]) ? $row[11] : null,
-                    'app_version'   => isset($row[12]) ? $row[12] : null,
+                    'city'          => !empty($row[0]) ? $row[0] : null,
+                    'country'       => !empty($row[1]) ? $row[1] : null,
+                    'countryCode'   => !empty($row[2]) ? $row[2] : null,
+                    'isp'           => !empty($row[3]) ? $row[3] : null,
+                    'org'           => !empty($row[4]) ? $row[4] : null,
+                    'query'         => !empty($row[5]) ? $row[5] : null,
+                    'region'        => !empty($row[6]) ? $row[6] : null,
+                    'timezone'      => !empty($row[7]) ? $row[7] : null,
+                    'provider'      => !empty($row[8]) ? $row[8] : null,
+                    'log_time'      => !empty($row[9]) ? $row[9] : null,
+                    'app_name'      => !empty($row[10]) ? $row[10] : null,
+                    'device_id'     => !empty($row[11]) ? $row[11] : null,
+                    'app_version'   => !empty($row[12]) ? $row[12] : null,
                 ]);
             }
 
