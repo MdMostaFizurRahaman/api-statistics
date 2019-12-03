@@ -63,7 +63,7 @@ class ParseLog extends Command
     public function insertIntoDB()
     {
 
-        $file = fopen('test.log', "r");
+        $file = fopen('E:\saidul\xampp\htdocs\location-api\storage\logs\api\laravel-2019-12-03.log', "r");
 
         $pattern= '/\[\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\]\s\w*.INFO:/';
 
@@ -87,6 +87,9 @@ class ParseLog extends Command
                     'timezone'      => isset($row[7]) ? $row[7] : null,
                     'provider'      => isset($row[8]) ? $row[8] : null,
                     'log_time'      => isset($row[9]) ? $row[9] : null,
+                    'app_name'      => isset($row[10]) ? $row[10] : null,
+                    'device_id'     => isset($row[11]) ? $row[11] : null,
+                    'app_version'   => isset($row[12]) ? $row[12] : null,
                 ]);
             }
 

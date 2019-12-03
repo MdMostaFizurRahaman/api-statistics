@@ -24,7 +24,10 @@ class CreateStatisticsTable extends Migration
             $table->string('region')->nullable();
             $table->string('timezone')->nullable();
             $table->string('provider')->nullable();
-            $table->dateTime('log_time')->nullable();
+            $table->dateTime('log_time')->nullable(); 
+            $table->string('app_name')->nullable(); 
+            $table->string('device_id')->nullable(); 
+            $table->string('app_version')->nullable(); 
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
