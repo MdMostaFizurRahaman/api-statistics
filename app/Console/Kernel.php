@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('parse:log')
                  ->everyFiveMinutes();
+        $schedule->command('summary:country')
+                 ->daily();
     }
 
     /**
