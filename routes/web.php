@@ -16,9 +16,9 @@ Route::get('/', "HomeController@index");
 
 // Route::get('/parse', "ParseController@parse");
 
-Route::group(['middleware' => 'auth'], function(){
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-    Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+	Route::get('/home', 'HomeController@index')->name('home');
 });
 
 
@@ -30,13 +30,13 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	
+
 	Route::get('notifications', function () {
 		return view('pages.notifications');
 	})->name('notifications');
 
-	Route::get('/test', function (){
-		$res =DB::table('statistics')->where('app_version', '3.0.0')->first();
+	Route::get('/test', function () {
+		$res = DB::table('statistics')->where('app_version', '3.0.0')->first();
 		return response()->json($res);
 	});
 });
@@ -48,5 +48,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('country_summary', 'CountrySummaryController@index')->name('country_summary');
 	Route::get('country_summary/get', 'CountrySummaryController@getSummary')->name('country_summary.get');
+	Route::post('country_summary/get/hourly', 'CountrySummaryController@getHourlySummary')->name('country_summary.hourly');
+	Route::get("country_summary/get/country_list", "CountrySummaryController@getCountryList")->name('country_summary.country_list');
 });
-

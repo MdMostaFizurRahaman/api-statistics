@@ -15,8 +15,7 @@
     
     <!-- CSS Files -->
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -48,8 +47,6 @@
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
         <script src="{{ asset('material') }}/js/settings.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
         <script src="{{asset('js/app.js')}}"></script>
         @stack('js')
     </body>

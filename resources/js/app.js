@@ -10,8 +10,14 @@ window.Vue = require('vue');
 
 import numeral from 'numeral';
 import numFormat from 'vue-filter-number-format';
+import { Form, HasError, AlertError } from 'vform';
+import CountryFlag from 'vue-country-flag'
  
+
 Vue.filter('numFormat', numFormat(numeral));
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,6 +31,7 @@ Vue.filter('numFormat', numFormat(numeral));
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('country-flag', CountryFlag)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
