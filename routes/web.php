@@ -50,4 +50,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('country_summary/get', 'CountrySummaryController@getSummary')->name('country_summary.get');
 	Route::post('country_summary/get/hourly', 'CountrySummaryController@getHourlySummary')->name('country_summary.hourly');
 	Route::get("country_summary/get/country_list", "CountrySummaryController@getCountryList")->name('country_summary.country_list');
+
+
+	Route::get('app_summary', "AppSummaryController@index")->name('app_summary');
+	Route::get('app_summary/get', 'AppSummaryController@getSummary')->name('app_summary.get');
+	Route::post('app_summary/get/filter', 'AppSummaryController@getFilterSummmary')->name('app_summary.filter');
+	Route::get("app_summary/get/country_list", "AppSummaryController@getCountryList")->name('app_summary.country_list');
 });

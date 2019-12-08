@@ -46,7 +46,13 @@
           <i class="material-icons">content_paste</i>
             <p>Country Summary</p>
         </a>
-    </li>
+      </li>
+       <li class="nav-item{{ $activePage == 'app_summary' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('app_summary') }}">
+          <i class="material-icons">android</i>
+            <p>App Summary</p>
+        </a>
+      </li>
     </ul>
   </div>
 </div>
