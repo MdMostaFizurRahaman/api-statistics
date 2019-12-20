@@ -46,7 +46,7 @@
         <script src="{{ asset('material') }}/js/plugins/bootstrap-notify.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="{{ asset('material') }}/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-        <script src="{{ asset('material') }}/js/settings.js"></script>
+        {{-- <script src="{{ asset('material') }}/js/settings.js"></script> --}}
         <script src="{{asset('js/app.js')}}"></script>
         @stack('js')
     </body>

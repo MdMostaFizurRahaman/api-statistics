@@ -47,6 +47,52 @@
         </div>
       </div>
     </div>
+
+    {{-- Hourly Summary  --}}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Weekly Summary</h4>
+            <p class="card-category"> Countrywise weekly unique request summary</p>
+          </div>
+      
+          <div class="card-body">
+            <div  class="table-responsive">
+              <table class="table" id="weekly_table">
+                <thead class=" text-primary">
+                  <th>
+                    Sl
+                  </th>
+                  <th>
+                    ISO
+                  </th>
+                  <th>
+                    Flag
+                  </th>
+                  <th>
+                    Country
+                  </th>
+                  <th>
+                    Total
+                  </th>
+                </thead>
+                <tbody>
+                  <tr v-for="(country, index) in weeklyCountryList" :key='index'>
+                    <td>@{{index+1}}</td>
+                    <td>@{{country.iso}}</td>
+                    <td><country-flag :country='country.iso | lowercase' size='normal'/></td>
+                    <td>@{{country.country}}</td>
+                    <td>@{{country.total}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
     {{-- Hourly Summary  --}}
     <div class="row">
       <div class="col-md-12">
@@ -81,6 +127,8 @@
                 </div>
               </div>
             </form>
+
+
 
             <div v-show="hourlySummary" class="table-responsive">
               <table class="table">
@@ -131,6 +179,7 @@
       el: '#country_summary',
       data:{
         countryList:[],
+        weeklyCountryList:[],
         countries: [],
         hourlySummary: false,
         form : new Form({
@@ -178,11 +227,26 @@
                   this.countryList = res.data
                 })
                 .catch(e=>alert(e))
+        },
+        getContryWeeklyUnquiRequest(){
+          axios.get('{{route("country_summary.country_list.weekly")}}')
+                .then(res=>{
+                  this.weeklyCountryList = res.data
+                  this.$nextTick(function () {
+                    $('#weekly_table').DataTable({
+                      "lengthChange": false,
+                        "pageLength": 10,
+                        "lengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]],
+                      });
+                  })
+                })
+                .catch(e=>alert(e))
         }
       },
       created(){
         this.getSummary();
         this.getCountryList();
+        this.getContryWeeklyUnquiRequest()
       }
     })
   </script>
