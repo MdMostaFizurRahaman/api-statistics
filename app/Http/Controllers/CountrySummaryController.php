@@ -36,4 +36,9 @@ class CountrySummaryController extends Controller
     {
         return DB::table('weekly_unique_requests_countrywise')->orderBy('total', 'desc')->get();
     }
+
+    public function getCountryListDaily()
+    {
+        return DB::table('todays_unique_request_countrywise')->orderBy('total', 'desc')->get();
+    }
 }
